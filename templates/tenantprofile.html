@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 style="color: #333; padding: 10px; background-color: #eee; margin: 0; font-size: 24px;">Tenant Details</h1>
+<ul style="list-style-type: none; padding: 0;">
+    <li style="margin: 5px; padding: 15px; background-color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); border-radius: 8px; font-size: 13px; color: #555;"><h3>Property unit : {{tenant.property_unit}}</h3> </li>
+    <li style="margin: 5px; padding: 15px; background-color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); border-radius: 8px; font-size: 13px; color: #555;"><h3>Name : {{tenant.tenant_name}}</h3> </li>
+    <li style="margin: 5px; padding: 15px; background-color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); border-radius: 8px; font-size: 13px; color: #555;"><h3>Address : {{tenant.tenant_address}}</h3> </li>
+    <li style="margin: 5px; padding: 15px; background-color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); border-radius: 8px; font-size: 13px; color: #555;"><h3>Document Proofs : {{tenant.document_proofs}}</h3> </li>
+    <li style="margin: 5px; padding: 15px; background-color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); border-radius: 8px; font-size: 13px; color: #555;"><h3>Agreement End Date : {{tenant.agreement_end_date}}</h3> </li>
+    <li style="margin: 5px; padding: 15px; background-color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); border-radius: 8px; font-size: 13px; color: #555;"><h3>Rent Date : {{tenant.monthly_rent_date}}</h3> </li>
+    <li style="margin: 5px; padding: 15px; background-color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); border-radius: 8px; font-size: 13px; color: #555;"><h3>Property : {{tenant.property_unit.property_profile.name}}</h3> </li>
+
+</ul>
+
+{% endblock content %}

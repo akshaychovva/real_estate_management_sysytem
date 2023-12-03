@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+    {% if not property %}
+    <form action="{% url 'search_unit' %}">
+        {{ form.as_p }}
+        <input type="submit" name="Search">
+    </form>
+    {% endif %}
+
+
+    {% if property %}
+    <title>{{property.name}}</title>
+
+    <h1 style="color: #333; padding: 10px; background-color: #eee; margin: 0; font-size: 24px;">{{property.name}}</h1>
+    <ul style="list-style-type: none; padding: 0;">
+        <li style="margin: 5px; padding: 15px; background-color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); border-radius: 8px; font-size: 13px; color: #555;"><h3>{{property.location}}</h3> </li>
+        <li style="margin: 5px; padding: 15px; background-color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); border-radius: 8px; font-size: 13px; color: #555;"><h3>{{property.address}}</h3> </li>
+        <li style="margin: 5px; padding: 15px; background-color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); border-radius: 8px; font-size: 13px; color: #555;"><h3>{{features}}</h3> </li>
+    </ul>
+    {% endif %}
+    
+    <h1 style="color: #333; padding: 10px; background-color: #eee; margin: 0; font-size: 24px;">Property Units</h1>
+    <ul style="list-style-type: none; padding: 0;">
+        {% for propertyunit in property_units %}
+            <li style="margin: 10px; padding: 15px; background-color: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); border-radius: 8px; font-size: 16px; color: #555;">
+            <a href="{% url 'unit_details' propertyunit.id %}">
+            <b> {{propertyunit.unit_code}} </b> 
+            </a> <br><h6>{{propertyunit.type}}
+            </h6>
+            <h6>{{propertyunit.property_profile.name}}</h6>
+            </li>
+
+        {% endfor %}
+
+    </ul>
+
+
+{% endblock content %}
